@@ -1,11 +1,11 @@
 # Principles-of-Machine-Learning
-Module 1
-_______________________________
+## Module 1
+___
 
-Introduction to Classification
-_______________________________
+## Introduction to Classification
+___
 
-Classification: raining set of observations + test set used for evaluations
+**Classification**: raining set of observations + test set used for evaluations
 We want to run predictions on test set
 A bit of noise on training data is Ok
 Training data:more the merrier
@@ -28,7 +28,7 @@ be more prone to explosions and fires in the near future, but what combination o
 would give you the best predictor? How do you combine them together? You could add them
 all up, but that might not be the best thing. You could give them all weights and add them
 all up, but how do you know the weights? And that’s what machine learning does for you.
-It tells you what combinations to use to get the best predictors.
+**It tells you what combinations to use to get the best predictors.**
 
 But for the manhole problem,
 we want to use the data from the past to predict the future. So for instance, the future data
@@ -58,7 +58,9 @@ variables, the oldest cable and then the number of events last year. And the sam
 for the commuter vision problem that we discussed earlier. We’re trying to create this decision
 boundary that’s going to chop the space into two pieces, where on one side of the
 decision boundary we would predict positive, and then on the other side we’d predict
-negative. And the trick is, how do we create this decision boundary? How do we create this
+negative. 
+
+And the trick is, how do we create this decision boundary? How do we create this
 function f? Okay, so given our training data, we want to create our classification model
 f that can make predictions. The machine learning algorithm is going to create the function
 f for you, and no matter how complicated that function f is, the way to use it is not very
@@ -66,29 +68,40 @@ complicated at all. The way to use it is just this: the predicted value of y for
 
 
 Classification is for yes or no questions. You can do a lot if you can answer yes or
-no questions. So for instance, think about like handwriting recognition. For each letter
-on a page, we’re going to evaluate whether it’s a letter A, a yes or no. And if you’re
+no questions. 
+- So for instance, think about like handwriting recognition. For each letter
+on a page, we’re going to evaluate whether it’s a letter A, a yes or no. 
+- And if you’re
 doing like spam detection, right, the spam detector on your computer has a machine learning
 algorithm in it. Each email that comes in has to be evaluated as to whether or not it’s
-spam. Credit defaults: right, whether or not you get a loan depends on whether the bank
+spam. 
+- Credit defaults: right, whether or not you get a loan depends on whether the bank
 predicts that you’re going to default on your loan, yes or no.
 
 
-Loss functions for classification:
+## Loss functions for classification:
+___
 
 how do we measure classification error?
 
 one very very simple way to do it is to use
 just a fraction of times our predictions are wrong. So just the fraction of times the sign
-of f(x) is not equal to the truth y, and I can write it like [img:pic1]. The issue with
+of f(x) is not equal to the truth y, and I can write it like: 
+![img:pic1](pic1.png)
+
+The issue with
 this particular way of measuring classification error is that if you want to try to minimize
 this, you could run into a lot of trouble because it’s computationally hard to minimize
 this thing.
 So let’s give you the geometric picture here: the decision boundary is this
 line right here, and f being positive is here and f being negative is here, and the red
-points are all misclassified.[img:pic1]
+points are all misclassified
+![img:pic1](pic1.png)
 
-Okay so over here[img: pic2], on the right either f is positive and y is also positive, so y-f is
+Okay so over here
+![img:pic2](pic2.png)
+
+on the right either f is positive and y is also positive, so y-f is
 positive, or they’re both negative so the product is positive again. And then over here
 on the left, we have cases where the sign of f is different from y, so the product is
 negative. And then the ones I suffer a penalty for are all these guys over there.
@@ -102,19 +115,25 @@ point if y-f is less than 0, and otherwise we lose no points. And this is the cl
 0-1 loss. It just tells you whether your classifier is right or wrong. And then this thing is
 called a loss function, and there are other loss functions too, and this one’s nice
 because – but it’s problematic because it’s not smooth, and we have issues with
-things that are not smooth in machine learning.[img: pic3]
+things that are not smooth in machine learning.
+
+![img: pic3](pic3.png)
 
 these points over here are the ones that
 are very wrong, because they’re on the wrong side of the decision boundary, but they’re
 really far away from it too. And these points are wrong, but they’re not as bad; they’re
 on the wrong side of the decision boundary but they’re pretty close to it. And then
-we’ll say these points are sort of correct, and we’ll say these points are very correct.[img: pic3]
+we’ll say these points are sort of correct, and we’ll say these points are very correct.
+
+![img: pic3](pic4.png)
 
 And what we’ll really like to have are loss functions that don’t penalize the very correct
 ones, but the penalty gets worse and worse as you go to the left. But maybe we can use
 some other loss function, something that – you know, maybe we get a small penalty for being
 sort of correct and then a bigger penalty for being sort of wrong and then a huge penalty
-for being very wrong. [img: pic5]
+for being very wrong.
+
+![img: pic5](pic5.png)
 
 Okay so start here: the misclassification error is the fraction
 of times that the sign of f is not equal to the truth y that’s this. I can rewrite it
@@ -122,8 +141,9 @@ this way, okay, the number of times y times f is less than 0. And then we’ll u
 this by these loss functions. Okay, so then what is a good way to try to reduce the misclassification
 error which is that guy? Well you could just try to minimize the average loss. So if you
 had a choice of functions f, you could try to choose f to minimize this thing, which
-hopefully would also minimize this but in a computationally easier way.[img:pic6]
+hopefully would also minimize this but in a computationally easier way.
 
+![img: pic6](pic6.png)
 
 
 
