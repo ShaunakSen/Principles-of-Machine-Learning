@@ -87,7 +87,8 @@ how do we measure classification error?
 one very very simple way to do it is to use
 just a fraction of times our predictions are wrong. So just the fraction of times the sign
 of f(x) is not equal to the truth y, and I can write it like: 
-![img:pic1](pic1.png)
+
+![img:pic1](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic1.PNG)
 
 The issue with
 this particular way of measuring classification error is that if you want to try to minimize
@@ -96,10 +97,10 @@ this thing.
 So let’s give you the geometric picture here: the decision boundary is this
 line right here, and f being positive is here and f being negative is here, and the red
 points are all misclassified
-![img:pic1](pic1.png)
+![img:pic1](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic1.PNG)
 
 Okay so over here
-![img:pic2](pic2.png)
+![img:pic2](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic2.PNG)
 
 on the right either f is positive and y is also positive, so y-f is
 positive, or they’re both negative so the product is positive again. And then over here
@@ -117,7 +118,7 @@ called a loss function, and there are other loss functions too, and this one’s
 because – but it’s problematic because it’s not smooth, and we have issues with
 things that are not smooth in machine learning.
 
-![img: pic3](pic3.png)
+![img: pic3](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic3.PNG)
 
 these points over here are the ones that
 are very wrong, because they’re on the wrong side of the decision boundary, but they’re
@@ -125,7 +126,7 @@ really far away from it too. And these points are wrong, but they’re not as ba
 on the wrong side of the decision boundary but they’re pretty close to it. And then
 we’ll say these points are sort of correct, and we’ll say these points are very correct.
 
-![img: pic3](pic4.png)
+![img: pic3](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic4.PNG)
 
 And what we’ll really like to have are loss functions that don’t penalize the very correct
 ones, but the penalty gets worse and worse as you go to the left. But maybe we can use
@@ -133,7 +134,7 @@ some other loss function, something that – you know, maybe we get a small pena
 sort of correct and then a bigger penalty for being sort of wrong and then a huge penalty
 for being very wrong.
 
-![img: pic5](pic5.png)
+![img: pic5](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic5.PNG)
 
 Okay so start here: the misclassification error is the fraction
 of times that the sign of f is not equal to the truth y that’s this. I can rewrite it
@@ -143,7 +144,7 @@ error which is that guy? Well you could just try to minimize the average loss. S
 had a choice of functions f, you could try to choose f to minimize this thing, which
 hopefully would also minimize this but in a computationally easier way.
 
-![img: pic6](pic6.png)
+![img: pic6](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic6.PNG)
 
 
 
