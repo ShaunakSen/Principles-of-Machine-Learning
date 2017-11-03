@@ -71,3 +71,65 @@ doing like spam detection, right, the spam detector on your computer has a machi
 algorithm in it. Each email that comes in has to be evaluated as to whether or not it’s
 spam. Credit defaults: right, whether or not you get a loan depends on whether the bank
 predicts that you’re going to default on your loan, yes or no.
+
+
+Loss functions for classification:
+
+how do we measure classification error?
+
+one very very simple way to do it is to use
+just a fraction of times our predictions are wrong. So just the fraction of times the sign
+of f(x) is not equal to the truth y, and I can write it like [img:pic1]. The issue with
+this particular way of measuring classification error is that if you want to try to minimize
+this, you could run into a lot of trouble because it’s computationally hard to minimize
+this thing.
+So let’s give you the geometric picture here: the decision boundary is this
+line right here, and f being positive is here and f being negative is here, and the red
+points are all misclassified.[img:pic1]
+
+Okay so over here[img: pic2], on the right either f is positive and y is also positive, so y-f is
+positive, or they’re both negative so the product is positive again. And then over here
+on the left, we have cases where the sign of f is different from y, so the product is
+negative. And then the ones I suffer a penalty for are all these guys over there.
+
+Now
+this function tells us what kind of penalty we’re going to issue for being wrong. Okay
+so right now, if y times f is positive, it means we got it right and we lose 0 points.
+And if we get it wrong, the point is on the wrong side and so we lose one point. Now I’m
+just going to write this function another way which is like this, okay, so we lose one
+point if y-f is less than 0, and otherwise we lose no points. And this is the classic
+0-1 loss. It just tells you whether your classifier is right or wrong. And then this thing is
+called a loss function, and there are other loss functions too, and this one’s nice
+because – but it’s problematic because it’s not smooth, and we have issues with
+things that are not smooth in machine learning.[img: pic3]
+
+these points over here are the ones that
+are very wrong, because they’re on the wrong side of the decision boundary, but they’re
+really far away from it too. And these points are wrong, but they’re not as bad; they’re
+on the wrong side of the decision boundary but they’re pretty close to it. And then
+we’ll say these points are sort of correct, and we’ll say these points are very correct.[img: pic3]
+
+And what we’ll really like to have are loss functions that don’t penalize the very correct
+ones, but the penalty gets worse and worse as you go to the left. But maybe we can use
+some other loss function, something that – you know, maybe we get a small penalty for being
+sort of correct and then a bigger penalty for being sort of wrong and then a huge penalty
+for being very wrong. [img: pic5]
+
+Okay so start here: the misclassification error is the fraction
+of times that the sign of f is not equal to the truth y that’s this. I can rewrite it
+this way, okay, the number of times y times f is less than 0. And then we’ll upper-bound
+this by these loss functions. Okay, so then what is a good way to try to reduce the misclassification
+error which is that guy? Well you could just try to minimize the average loss. So if you
+had a choice of functions f, you could try to choose f to minimize this thing, which
+hopefully would also minimize this but in a computationally easier way.[img:pic6]
+
+
+
+
+
+
+
+
+
+
+
