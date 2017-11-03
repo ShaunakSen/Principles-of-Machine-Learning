@@ -146,12 +146,70 @@ hopefully would also minimize this but in a computationally easier way.
 
 ![img: pic6](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic6.PNG)
 
+## Statistical Learning Theory for Supervised Learning
+___
+
+The key principle in statistical learning theory is the principle of Ockham’s razor
+
+>Now Ockham’s razor is the idea that the best models are simple >models that fit the
+>data well 
+
+ Ok, so let’s start with a basic one dimension
+regression model. This model I have on the screen there is not good; it’s really over-fitted.
+So it’s just not going to generalize well to new points; it just can’t predict well.
+
+![img: pic7](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic7.PNG)
 
 
+Now let’s say that I have some way to measure model complexity, and the more complex the
+models I have, the more they tend to over-fit and the simpler models, they tend to under-fit.
+Now this plot is the key to understanding learning theory. If I plot training error,
+which is this curve over here, then as the models grow more and more complex, the training
+error continues to decrease, because I can just over-fit more and more. But at the same
+time, if I do that, the test error gets worse and worse. If I, on the other hand, under-fit,
+then I won’t do well for either training or test. Where I want to go, is this sweet
+spot in the middle here. And the idea of this plot it holds true for classification, progression,
+whatever.
 
+![img: pic8](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic8.PNG)
 
+So the idea is that the best models are simple models that fit the data well.
+So what we need is a balance between accuracy and simplicity.
 
+So the most common machine learning methods, they choose
+their function f, to minimize training error and model complexity, which aims to thwart
+the cursive dimensionality. So the cursive dimensionality is that we tend to over-fit
+when we have a lot of features and not as much data. Data needs to increase exponentially
+with the number of features in order not to have this issue of over-fitting. So we’re
+going to choose a model that’s both simple – low complexity – and has low training
+error; and this exactly is the principle of Ockham’s razor. 
 
+![img: pic9](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic9.PNG)
 
+**So
+this is the main foundation of machine learning; it’s all about creating functions that minimize
+the loss, but also keep the model simple**
 
+## Logistic regression
+___
 
+Now, logistic regression uses this loss function
+over here that we talked about. You saw this before. It’s the dark blue curve over here.
+
+![img: pic10](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic10.PNG)
+
+Now, we have to choose what kind of
+model f is going to be, and we’ll choose a linear model. So it’s a weighted sum of
+the features. For instance, if we’re trying to predict income, our model might look like
+three times the hours a person works, plus four times the years of experience and so
+on. So here, the first feature x1 is hours and beta one is 3 and so on. I can write it
+here in summation notation. So f is the sum of the weighted features, where the weights
+are called beta. And I also call the beta “coefficients”
+
+![img: pic11](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic11.PNG)
+
+So here, all I did was
+plug this form of f into that minimization problem for logistic regression. So now, it’s
+going to try to find the weights that minimize the sum of the training losses. And this is
+what logistic regression does; no more, no less. It just chooses the coefficients (those
+betas) to minimize this thing.
