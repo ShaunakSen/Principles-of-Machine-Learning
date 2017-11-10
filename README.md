@@ -213,3 +213,74 @@ plug this form of f into that minimization problem for logistic regression. So n
 going to try to find the weights that minimize the sum of the training losses. And this is
 what logistic regression does; no more, no less. It just chooses the coefficients (those
 betas) to minimize this thing.
+
+## Maximum Likelihood Perspective
+
+___
+
+Logistic Function:
+
+![img: pic12](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic12.PNG)
+
+It was a very early **population model**
+
+When a country gets full popn saturates
+
+Prob lies bw 0 and 1
+so u can enter any no in the function and it outputs a probability
+
+Formula for function:
+
+![img: pic13](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic13.PNG)
+
+so when t is really big, then e to the t is much bigger than 1,
+and so this one basically gets ignored down here and you get 1. And if t is really small,
+then the top goes to 0 and the bottom goes to 1, and you get 0.
+
+where does logistic regression come in?
+
+Let’s model the probability that the outcome is – the outcome y is 1 for a specific accent
+beta just like this
+
+![img: pic14](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic14.PNG)
+
+So why would we do this? It looks like a complicated function;
+where did I get this? So here’s the trick: the thing on the left is a probability, so
+the thing on the right had better be a probability. And guess what, we know it is. It’s just
+a logistic function, and a logistic function only produces probabilities. Okay so now this
+model makes sense, that’s why I want to model a probability like this. And now I’m
+just putting it in matrix notation, just to make my life a little bit easier instead of
+having to write all these sums all over the place, I can just write this matrix x times
+the vector beta.
+
+Now I also can compute the probability that the label is minus 1, given
+xi and beta using the model. So it’s just one minus the probability that it’s 1, so
+it’s just 1 minus that guy, and you can simplify that and make it look like this.
+Now I’m going to need to calculate the likelihood of each of the observations, which is the
+probability to observe the label y that I actually observed, given it’s x in the model
+beta.
+
+![img: pic15](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic15.PNG)
+
+And I am actually almost there already, because I’ve already done all of that already.
+So this is it, right, if y is minus 1, then you use this one. If y is plus 1, then you
+use this one, and that’s – that’s this probability right here. 
+
+![img: pic16](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic16.PNG)
+
+
+And then I can simplify
+this a little bit more, because remember y is minus 1, so I can always put a minus y
+here because minus y is just 1, and I can do this same thing with the other term here.
+So first thing I want to just divide top and bottom by e to the x beta, and I end up with
+something that looks like that. And then I can always multiply by 1 in disguise, because
+remember y is positive 1, so I can just write this as minus yx because I just multiply by
+1 here which is just the y. Now the interesting thing is these two expressions should look
+rather similar to you; in fact, they should look exactly the same because they are.
+
+![img: pic17](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic17.PNG)
+
+hen I compute the likelihood for all
+the data, I have to multiply all these probabilities together. 
+
+![img: pic18](https://github.com/ShaunakSen/Principles-of-Machine-Learning/blob/master/pic18.PNG)
